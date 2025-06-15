@@ -40,8 +40,11 @@ namespace DAL.Migrations
                     Ip = table.Column<string>(type: "text", nullable: false),
                     Port = table.Column<int>(type: "integer", nullable: false),
                     IsWork = table.Column<bool>(type: "boolean", nullable: false),
+                    TypeApplication = table.Column<int>(type: "integer", nullable: false),
                     DateLastCheck = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
                     DateBreak = table.Column<DateTime>(type: "timestamp with time zone", nullable: true),
+                    Login = table.Column<string>(type: "text", nullable: true),
+                    Password = table.Column<string>(type: "text", nullable: true),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -114,6 +117,7 @@ namespace DAL.Migrations
                     LastName = table.Column<string>(type: "text", nullable: true),
                     MiddleName = table.Column<string>(type: "text", nullable: true),
                     Login = table.Column<string>(type: "text", nullable: false),
+                    Language = table.Column<int>(type: "integer", nullable: false),
                     Ip = table.Column<string>(type: "text", nullable: false),
                     HashPassword = table.Column<string>(type: "text", nullable: true),
                     Salt = table.Column<byte[]>(type: "bytea", nullable: true),
@@ -171,18 +175,23 @@ namespace DAL.Migrations
 
             migrationBuilder.InsertData(
                 table: "Applications",
-                columns: new[] { "Uid", "DateBreak", "DateLastCheck", "Description", "Ip", "IsActive", "IsWork", "Name", "Port", "Version" },
-                values: new object[] { new Guid("f265c353-e68c-463a-9497-1c4d589a9ae5"), null, null, "Приложения для списка задач, которые нужно сделать для восстановления Волги", "10.10.10.10", true, true, "Volga-Tracker", 10, "v1" });
+                columns: new[] { "Uid", "DateBreak", "DateLastCheck", "Description", "Ip", "IsActive", "IsWork", "Login", "Name", "Password", "Port", "TypeApplication", "Version" },
+                values: new object[,]
+                {
+                    { new Guid("3f597bd4-b9dd-4788-aa02-8db6125ef945"), null, null, "База данных для пользователей", "195.133.28.197", true, true, "postgres", "UserBeer", "3G4rc3093jBlYgEaha/fOw==", 5432, 3, "v1" },
+                    { new Guid("4e0129a9-fd5e-4110-95ff-cd19b43d3c72"), null, null, "База данных для волга-трекер", "195.133.28.197", true, true, "postgres", "volga_tracker", "3G4rc3093jBlYgEaha/fOw==", 5432, 3, "v1" },
+                    { new Guid("79e32f14-c263-4a2e-9f1c-0185e8c03ce6"), null, null, "Приложения для списка задач, которые нужно сделать для восстановления Волги", "195.133.28.197", true, true, null, "Volga-Tracker", null, 10, 2, "v1" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Uid", "ApiKeyUid", "Code", "DateCreate", "DateUpdate", "Email", "FirstName", "HashPassword", "Ip", "IsActive", "IsActiveCode", "IsApiKey", "IsPass", "IsUserPass", "LastName", "Login", "MiddleName", "RefreshTokenUid", "Salt" },
+                columns: new[] { "Uid", "ApiKeyUid", "Code", "DateCreate", "DateUpdate", "Email", "FirstName", "HashPassword", "Ip", "IsActive", "IsActiveCode", "IsApiKey", "IsPass", "IsUserPass", "Language", "LastName", "Login", "MiddleName", "RefreshTokenUid", "Salt" },
                 values: new object[,]
                 {
-                    { new Guid("1537a523-57dd-446e-875b-38f4b175bc85"), null, "000000", new DateTime(2025, 2, 27, 19, 5, 56, 571, DateTimeKind.Utc).AddTicks(5628), null, "test@gmail.com", "Эдуард", null, "127.0.0.1", true, false, false, false, true, "Новиков", "Nedoff", "Дмитриевич", null, null },
-                    { new Guid("157ffc20-068f-4554-95a3-b9299b523bd1"), null, "000000", new DateTime(2025, 2, 27, 19, 5, 56, 571, DateTimeKind.Utc).AddTicks(2899), null, null, "Дмитрий", null, "127.0.0.1", true, false, false, false, true, "Патюков", "Totohka", "Анатольевич", null, null },
-                    { new Guid("30ee8405-0335-458f-8e9a-b60edcf16f52"), null, "000000", new DateTime(2025, 2, 27, 19, 5, 56, 571, DateTimeKind.Utc).AddTicks(5654), null, "test2@gmail.com", "Степан", null, "127.0.0.1", true, false, false, false, true, "Кондрашов", "Stepan", "Андреевич", null, null },
-                    { new Guid("60ae897d-7e13-4180-ad24-86276d1489a2"), null, "000000", new DateTime(2025, 2, 27, 19, 5, 56, 571, DateTimeKind.Utc).AddTicks(5660), null, "test3@gmail.com", "Кирилл", null, "127.0.0.1", true, false, false, false, true, "Шилов", "Kirill", "Александрович", null, null }
+                    { new Guid("09814dd3-e028-40ae-81ee-6b16653d57fa"), null, "000000", new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(3115), null, null, "Степан", null, "127.0.0.1", true, false, false, false, true, 0, "Кондрашов", "Stepan", "Андреевич", null, null },
+                    { new Guid("4a087b1a-0195-493e-8324-4c26ebc0c4eb"), null, "000000", new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(1159), null, null, "Дмитрий", null, "127.0.0.1", true, false, false, false, true, 0, "Патюков", "Totohka", "Анатольевич", null, null },
+                    { new Guid("5436fc04-a7d3-4a45-ad7f-861c1eba0ed0"), null, "000000", new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(3105), null, null, "Эдуард", null, "127.0.0.1", true, false, false, false, true, 0, "Новиков", "Nedoff", "Дмитриевич", null, null },
+                    { new Guid("ad63676a-0994-427d-a639-17cb7ccf1fc2"), null, "000000", new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(3120), null, null, "Кирилл", null, "127.0.0.1", true, false, false, false, true, 0, "Шилов", "Kirill", "Александрович", null, null }
                 });
 
             migrationBuilder.CreateIndex(

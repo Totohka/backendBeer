@@ -75,11 +75,20 @@ namespace DAL.Migrations
                     b.Property<bool>("IsWork")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("Login")
+                        .HasColumnType("text");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("Password")
+                        .HasColumnType("text");
+
                     b.Property<int>("Port")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("TypeApplication")
                         .HasColumnType("integer");
 
                     b.Property<string>("Version")
@@ -92,13 +101,42 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Uid = new Guid("1162c098-330f-46f1-ae8a-110625ac0c64"),
+                            Uid = new Guid("79e32f14-c263-4a2e-9f1c-0185e8c03ce6"),
                             Description = "Приложения для списка задач, которые нужно сделать для восстановления Волги",
-                            Ip = "10.10.10.10",
+                            Ip = "195.133.28.197",
                             IsActive = true,
                             IsWork = true,
                             Name = "Volga-Tracker",
                             Port = 10,
+                            TypeApplication = 2,
+                            Version = "v1"
+                        },
+                        new
+                        {
+                            Uid = new Guid("4e0129a9-fd5e-4110-95ff-cd19b43d3c72"),
+                            Description = "База данных для волга-трекер",
+                            Ip = "195.133.28.197",
+                            IsActive = true,
+                            IsWork = true,
+                            Login = "postgres",
+                            Name = "volga_tracker",
+                            Password = "3G4rc3093jBlYgEaha/fOw==",
+                            Port = 5432,
+                            TypeApplication = 3,
+                            Version = "v1"
+                        },
+                        new
+                        {
+                            Uid = new Guid("3f597bd4-b9dd-4788-aa02-8db6125ef945"),
+                            Description = "База данных для пользователей",
+                            Ip = "195.133.28.197",
+                            IsActive = true,
+                            IsWork = true,
+                            Login = "postgres",
+                            Name = "UserBeer",
+                            Password = "3G4rc3093jBlYgEaha/fOw==",
+                            Port = 5432,
+                            TypeApplication = 3,
                             Version = "v1"
                         });
                 });
@@ -231,9 +269,9 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Uid = new Guid("7a1bda3f-9543-4208-aacd-2dd6d07a5d5a"),
+                            Uid = new Guid("4a087b1a-0195-493e-8324-4c26ebc0c4eb"),
                             Code = "000000",
-                            DateCreate = new DateTime(2025, 3, 1, 5, 16, 16, 128, DateTimeKind.Utc).AddTicks(8792),
+                            DateCreate = new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(1159),
                             FirstName = "Дмитрий",
                             Ip = "127.0.0.1",
                             IsActive = true,
@@ -248,10 +286,9 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Uid = new Guid("857c9bd8-6e11-4195-b4a8-fe3b94502856"),
+                            Uid = new Guid("5436fc04-a7d3-4a45-ad7f-861c1eba0ed0"),
                             Code = "000000",
-                            DateCreate = new DateTime(2025, 3, 1, 5, 16, 16, 129, DateTimeKind.Utc).AddTicks(1262),
-                            Email = "test@gmail.com",
+                            DateCreate = new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(3105),
                             FirstName = "Эдуард",
                             Ip = "127.0.0.1",
                             IsActive = true,
@@ -266,10 +303,9 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Uid = new Guid("2fbd2424-4f07-4262-a85a-ddad143636b2"),
+                            Uid = new Guid("09814dd3-e028-40ae-81ee-6b16653d57fa"),
                             Code = "000000",
-                            DateCreate = new DateTime(2025, 3, 1, 5, 16, 16, 129, DateTimeKind.Utc).AddTicks(1275),
-                            Email = "test2@gmail.com",
+                            DateCreate = new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(3115),
                             FirstName = "Степан",
                             Ip = "127.0.0.1",
                             IsActive = true,
@@ -284,10 +320,9 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Uid = new Guid("b2b612b0-0149-4b85-a669-96cd7c4926e8"),
+                            Uid = new Guid("ad63676a-0994-427d-a639-17cb7ccf1fc2"),
                             Code = "000000",
-                            DateCreate = new DateTime(2025, 3, 1, 5, 16, 16, 129, DateTimeKind.Utc).AddTicks(1282),
-                            Email = "test3@gmail.com",
+                            DateCreate = new DateTime(2025, 6, 15, 11, 17, 46, 115, DateTimeKind.Utc).AddTicks(3120),
                             FirstName = "Кирилл",
                             Ip = "127.0.0.1",
                             IsActive = true,

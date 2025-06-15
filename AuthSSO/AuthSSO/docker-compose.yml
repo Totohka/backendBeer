@@ -1,0 +1,26 @@
+﻿version: "3.8"
+
+services:
+  app: 
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: sso-app
+    ports: 
+      - "8081:8081"
+      - "8082:8082"
+    depends_on:
+      - postgre
+  postgre:
+    image: postgre:16-alpine
+    container_name: sso-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=UserBeer
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+
+
+

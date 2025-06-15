@@ -12,8 +12,7 @@ services:
     depends_on:
       - postgre
     networks:
-      net:
-        ipv4_address: 10.10.11.3
+      - sso-network
   postgre:
     image: postgre:16-alpine
     container_name: sso-db
@@ -24,14 +23,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     networks:
-      net:
-        ipv4_address: 10.10.11.2
+      - sso-network
 volumes:
   postgres_data:
 networks:
-  net:
-    ipam:
-      driver: default
-      config:
-        - subnet: 10.10.11.0/8
-          gateway: 10.10.11.1
+  sso-network:
+    driver: bridge

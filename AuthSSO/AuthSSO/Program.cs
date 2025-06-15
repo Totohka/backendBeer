@@ -51,7 +51,7 @@ builder.Services.AddSwaggerGen(o =>
     var xmlPath = Path.Combine(basePath, "AuthSSO.xml");
     o.IncludeXmlComments(xmlPath);
 });
-
+builder.WebHost.UseUrls("http://0.0.0.0:8081", "https://0.0.0.0:8082");
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

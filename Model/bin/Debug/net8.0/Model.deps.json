@@ -1,0 +1,44 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "Model/1.0.0": {
+        "dependencies": {
+          "AuthSSO.Common": "1.0.0"
+        },
+        "runtime": {
+          "Model.dll": {}
+        }
+      },
+      "AuthSSO.Common/1.0.0": {
+        "runtime": {
+          "AuthSSO.Common.dll": {}
+        },
+        "resources": {
+          "en/AuthSSO.Common.resources.dll": {
+            "locale": "en"
+          },
+          "ru/AuthSSO.Common.resources.dll": {
+            "locale": "ru"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Model/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "AuthSSO.Common/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

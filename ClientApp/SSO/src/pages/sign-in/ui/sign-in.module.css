@@ -1,0 +1,41 @@
+.container-inputs{
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    border: 1px solid rgba(0, 0, 0, 0.071);
+    border-radius: 20px;
+    background-color: rgb(250, 250, 250);
+    width: 25vw;
+    height: min-content;
+    box-shadow:  0px 8px 16px 
+        color-mix(in srgb, #18181b 10%, transparent), 0px 0px 1px 
+        color-mix(in srgb, #18181b 30%, transparent);
+}
+.container-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    font-size: 30px;
+    margin-top: 6%;
+}
+.input{
+    width: 20vw;
+}
+.last-link{
+    margin-bottom: 6%;
+}
+.button{
+    width: 20vw;
+    margin-bottom: 6%;
+}
+.auth-page{
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

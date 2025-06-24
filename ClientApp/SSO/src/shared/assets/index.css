@@ -1,0 +1,7 @@
+@font-face {
+  font-family: 'Faberge';
+  src: url('./fonts/ofont.ru_Faberge.ttf') format('truetype');
+  /* Add more formats for compatibility if necessary */
+  font-weight: normal;
+  font-style: normal;
+}

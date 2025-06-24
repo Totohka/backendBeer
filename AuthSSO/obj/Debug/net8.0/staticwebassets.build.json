@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cM/8Fmf74nCnI0u9F7QcJv/K+BGNhxSnYwuIQH8johE=",
+  "Source": "AuthSSO",
+  "BasePath": "_content/AuthSSO",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

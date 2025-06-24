@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AuthSSO</name>
+    </assembly>
+    <members>
+        <member name="T:AuthSSO.Controllers.AuthController">
+            <summary>
+            Контроллер аутентификации/авторизации
+            </summary>
+        </member>
+        <member name="M:AuthSSO.Controllers.AuthController.FirstLoginDefaultAccount(BL.RequestDTOs.FirstLoginDefaultDTO)">
+            <summary>
+            Первый вход в SSO. Нужен для быстрого восстановления доступа Димасу, Жоре, Стёпе и Кире, если слетят все данные с базы.
+            Пароль для входа приходит на электронную почту.
+            </summary>
+            <param name="dto">DTO первого входа</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthSSO.Controllers.AuthController.LoginUserPass(BL.RequestDTOs.LoginUserPassDTO)">
+            <summary>
+            Авторизация
+            </summary>
+            <param name="dto">DTO авторизации</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthSSO.Controllers.AuthController.Registration(BL.RequestDTOs.RegistrationUserDTO)">
+            <summary>
+            Регистрация нового пользователя. Через админа нужно будет активировать аккаунт пользователя.
+            </summary>
+            <param name="dto">DTO регистрации</param>
+            <returns></returns>
+        </member>
+        <member name="M:AuthSSO.Controllers.AuthController.RefreshToken">
+            <summary>
+            Обновить access токен. Если в куках есть AccessToken.greatmarch.beer, то жопу не парим, бэк всё сделает за тебя
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AuthSSO.Controllers.AuthController.VerifyToken(BL.RequestDTOs.VerifyDTO)">
+            <summary>
+            Возвращает все роли пользователя, связанные с приложением
+            </summary>
+            <param name="dto">DTO верификации</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,3 +1,2 @@
-export type BaseModel = {
-
-}
+// TODO: ну да тут я понял про какое наследование ты говорил, тут такого нет((
+export type BaseModel = {};
